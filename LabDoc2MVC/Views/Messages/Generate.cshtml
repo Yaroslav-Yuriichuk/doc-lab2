@@ -1,0 +1,27 @@
+@using DLL.Models
+@model DLL.Models.Message[]?
+
+@{
+    ViewBag.Title = "Messages";
+    Layout = "_Layout";
+}
+
+<h2>Generated messages</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Text</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var message in @Model ?? Enumerable.Empty<Message>())
+    {
+        <tr>
+            <td>@message.Id</td>
+            <td>@message.Text</td>
+        </tr>
+    }
+    </tbody>
+</table>

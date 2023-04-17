@@ -1,0 +1,23 @@
+@model DLL.Models.Message?
+
+@{
+    ViewBag.Title = "Messages";
+    Layout = "_Layout";
+}
+
+<h2>Messages</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Text</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model?.Id</td>
+            <td>@Model?.Text</td>
+        </tr>
+    </tbody>
+</table>
