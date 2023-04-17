@@ -18,4 +18,8 @@
       <ProjectReference Include="..\DLL\DLL.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\MessageView.razor" />
+    </ItemGroup>
+
 </Project>
