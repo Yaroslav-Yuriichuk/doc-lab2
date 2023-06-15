@@ -1,4 +1,4 @@
-namespace DLL.Repositories.Interfaces;
+namespace DLL.Repositories;
 
 public interface ICsvRepository<TModel>
 {

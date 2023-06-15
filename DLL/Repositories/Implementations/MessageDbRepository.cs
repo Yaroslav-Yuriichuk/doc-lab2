@@ -31,21 +31,22 @@ public sealed class MessageDbRepository : IMessageRepository
 
     public async Task<Message?> CreateAsync(Message model)
     {
-        Message? messageInDb = await _applicationDb.Messages.FirstOrDefaultAsync(m => m.Id == model.Id);
+        Message? dbMessage = await _applicationDb.Messages.FirstOrDefaultAsync(m => m.Id == model.Id);
 
-        if (messageInDb is not null)
+        if (dbMessage is not null)
         {
             return null;
         }
 
         _applicationDb.Messages.Add(model);
         await _applicationDb.SaveChangesAsync();
+
         return model;
     }
 
     public async Task<Message?> UpdateAsync(Message model)
     {
-        var dbMessage = await _applicationDb.Messages.FindAsync(model.Id);
+        Message? dbMessage = await _applicationDb.Messages.FindAsync(model.Id);
 
         if (dbMessage is null)
         {
@@ -60,7 +61,7 @@ public sealed class MessageDbRepository : IMessageRepository
 
     public async Task<Message?> DeleteAsync(int id)
     {
-        var dbMessage = await _applicationDb.Messages.FindAsync(id);
+        Message? dbMessage = await _applicationDb.Messages.FindAsync(id);
 
         if (dbMessage is null)
         {

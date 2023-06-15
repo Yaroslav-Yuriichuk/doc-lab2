@@ -7,21 +7,34 @@
 }
 
 <h2>Loaded messages</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Text</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var message in @Model ?? Enumerable.Empty<Message>())
-    {
+
+@if (Model is { Length: > 0 })
+{
+    <table class="table-bordered">
+        <thead>
         <tr>
-            <td>@message.Id</td>
-            <td>@message.Text</td>
+            <th>Id</th>
+            <th>Text</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
-    }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        @foreach (var message in @Model ?? Enumerable.Empty<Message>())
+        {
+            <tr>
+                <td>@message.Id</td>
+                <td>@message.Text</td>
+                <td><a asp-controller="Messages" asp-action="GetById" asp-route-id="@message.Id">View</a></td>
+                <td><a asp-controller="Messages" asp-action="Update" asp-route-id="@message.Id">Update</a></td>
+                <td><a asp-controller="Messages" asp-action="Delete" asp-route-id="@message.Id">Delete</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>No messages loaded, please generate them first</div>
+}

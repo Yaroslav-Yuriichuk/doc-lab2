@@ -1,5 +1,3 @@
-#define USE_MINIMAL_API
-
 using BLL.Services.Implementations;
 using BLL.Services.Interfaces;
 using DLL.Csv.Implementations;
@@ -31,8 +29,6 @@ if (app.Environment.IsDevelopment())
 }
 
 #region Minimal API
-
-#if USE_MINIMAL_API
 
 app.MapGet("/", () => "Welcome to the app!");
 
@@ -71,8 +67,6 @@ app.MapPost("/api/messages/generate", async (IMessageService messageService) => 
 app.MapPost("/api/messages/load", async (IMessageService messageService) => await messageService.LoadToDatabase());
 
 #endregion
-
-#endif
 
 #endregion
 

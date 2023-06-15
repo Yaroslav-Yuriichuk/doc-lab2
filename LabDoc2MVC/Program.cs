@@ -16,8 +16,20 @@ builder.Services.AddDbContext<ApplicationDb>(options =>
 });
 
 builder.Services.AddScoped<ICsvFileService<Message>, DefaultCsvFileService<Message>>();
+
+builder.Services.AddScoped<IChannelRepository, ChannelDbRepository>();
+builder.Services.AddScoped<IClientRepository, ClientDbRepository>();
+builder.Services.AddScoped<IInboxRepository, InboxDbRepository>();
 builder.Services.AddScoped<IMessageRepository, MessageDbRepository>();
+builder.Services.AddScoped<IOperatorRepository, OperatorDbRepository>();
+builder.Services.AddScoped<ITeamRepository, TeamDbRepository>();
+
+builder.Services.AddScoped<IChannelService, ChannelService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IInboxService, InboxService>();
 builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped<IOperatorService, OperatorService>();
+builder.Services.AddScoped<ITeamService, TeamService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

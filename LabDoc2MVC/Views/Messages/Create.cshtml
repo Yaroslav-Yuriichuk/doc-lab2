@@ -1,19 +1,16 @@
 @model DLL.Models.Message
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create message";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
 
-
-<form asp-route-returnUrl="@Model" method="post" class="w-50">
+<form method="post">
     <h2>Create message</h2>
     <div>
-        <label asp-for="Text"></label>
-        <input asp-for="Text" placeholder="8 + characters (letters and numbers)"
-               minlength="8" required/>
+        <input asp-for="Text" placeholder="Message text"
+               minlength="1" required class="w-75"/>
     </div>
     <div asp-validation-summary=All class="text-danger"></div>
     <div>

@@ -10,5 +10,10 @@ public sealed class ApplicationDb : DbContext
         Database.EnsureCreated();
     }
 
+    public DbSet<Channel> Channels => Set<Channel>();
+    public DbSet<Client> Clients => Set<Client>();
+    public DbSet<Inbox> Inboxes => Set<Inbox>();
     public DbSet<Message> Messages => Set<Message>();
+    public DbSet<Operator> Operators => Set<Operator>();
+    public DbSet<Team> Teams => Set<Team>();
 }

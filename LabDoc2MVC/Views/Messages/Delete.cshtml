@@ -1,0 +1,30 @@
+@model DLL.Models.Message?
+
+@{
+    ViewBag.Title = "Deleted message";
+    Layout = "_Layout";
+}
+
+<h2>Deleted message</h2>
+
+@if (Model != null)
+{
+    <table class="table-bordered">
+        <thead>
+        <tr>
+            <th class="w-25">Id</th>
+            <th class="w-75">Text</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>@Model?.Id</td>
+            <td>@Model?.Text</td>
+        </tr>
+        </tbody>
+    </table>
+}
+else
+{
+    <div>No deleted message</div>
+}

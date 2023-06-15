@@ -1,4 +1,4 @@
-namespace BLL.Services.Interfaces;
+namespace BLL.Services;
 
 public interface IGeneratorService<TModel>
 {
